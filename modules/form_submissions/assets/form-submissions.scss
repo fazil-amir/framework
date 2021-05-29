@@ -1,0 +1,118 @@
+@import '../../../engine/includes/styles/_variables.scss';
+@import '../../../engine/includes/styles/_mixins.scss';
+@import '../../../engine/includes/styles/_helpers.scss';
+
+#has-submission-view, 
+#no-submission-view {
+  display: none;
+}
+#no-submission-view {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.from-submission-page-container {
+  
+  .message {
+    display: flex;
+  }
+
+  td[class*='-cell'] {
+    height: 55px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .id-cell {
+    max-width: 175px;
+    min-width: 175px;
+  }
+  .subject-cell {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .name-cell {
+    max-width: 150px;
+    min-width: 150px;
+  }
+  .email-cell {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .phone-cell {
+    max-width: 120px;
+    min-width: 120px;
+  }
+  .date-cell {
+    max-width: 150px;
+    min-width: 150px;
+  }
+  .request-cell {
+    max-width: 100px;
+    min-width: 100px;
+  }
+  .action-cell {
+    max-width: 208px;
+    min-width: 208px;
+  }
+}
+
+#form-submission-modal {
+  td:not(.modal-cell-caption) {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .modal-cell-caption {
+    font-size: 11px;
+    font-weight: 600;
+    max-width: 150px;
+    min-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .modal-body {
+    width: 60vw !important;
+    height: 60vh !important;
+  }
+
+  .double-size td {
+    padding: 13px;
+    height: 75px;
+    vertical-align: top;
+  }
+
+  .middle-table {
+    position: relative;
+  }
+
+}
+
+#form-submission-result {
+  position: absolute;
+  max-height: 500px;
+  overflow: auto;
+  width: 100%;
+  display: none;
+  border: 1px solid $colorBorder;
+  box-shadow: 0px 16px 16px $colorBorder;
+
+  .table {
+    background: $colorStripedTable;
+    margin: 0;
+
+    td, th {
+      height: 55px;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+}

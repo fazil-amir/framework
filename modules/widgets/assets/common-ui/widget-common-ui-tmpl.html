@@ -1,0 +1,182 @@
+<div class='CKV-item'>
+
+    <span class='icon delete' id="{{CKV_ITEM_DELETE_ID}}"></span>
+    <span class='icon arrow-double' id='{{CKV_ITEM_COLLAPSE_ID}}'></span>
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table" style="margin-bottom: -1px">
+      <tr>
+        <th colspan="2" class="custom-header item-counter">Row #<span>{{CKV_ITEM_COUNT}}</span></th>
+      </tr>
+    </table>
+    <span class="move-handle icon move"></span>
+    
+    <div class="widget-content-container" id='widget-content-container'>
+      <table width="100%">
+        <tr>
+          <td style="width: 50">
+
+            <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="headline">Headline</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control validate"
+                    required="required" 
+                    name="headline[]" 
+                    id="headline" 
+                    value="{{CKV_ITEM_HEADLINE}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="cation">Caption:</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="cation" 
+                    name="cation[]" 
+                    value="{{CKV_ITEM_CAPTION}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="buttonLink">Button Link</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="buttonLink" 
+                    name="buttonLink[]" 
+                    value="{{CKV_ITEM_BUTTON_LINK}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="customKey_1">Custom Key 1:</label></td>
+                <td class="input">
+                  <input 
+                      URL'
+                    type="text" 
+                    class="form-control" 
+                    id="customKey_1" 
+                    name="customKey_1[]" 
+                    value="{{CKV_ITEM_CK_1}}">
+                </td>
+              </tr>
+              <tr>
+                  <td class="td-label" style="width: 35%"><label for="customKey_3">Custom Key 3:</label></td>
+                  <td class="input">
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="customKey_3" 
+                      name="customKey_3[]" 
+                      value="{{CKV_ITEM_CK_3}}">
+                  </td>
+                </tr>
+            </table>
+
+          </td>
+          <td style="width: 50">
+
+            <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="subHeadline">Sub Headline:</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="subHeadline" 
+                    name="subHeadline[]" 
+                    value="{{CKV_ITEM_SUB_HEADLINE}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="subCaption">Sub Caption:</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="subCaption" 
+                    name="subCaption[]" 
+                    value="{{CKV_ITEM_SUB_CAPTION}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="buttonCaption">Button Caption:</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="buttonCaption" 
+                    name="buttonCaption[]" 
+                    value="{{CKV_ITEM_BUTTON_CAPTION}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label" style="width: 35%"><label for="customKey_2">Custom Key 2:</label></td>
+                <td class="input">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="customKey_2" 
+                    name="customKey_2[]" 
+                    value="{{CKV_ITEM_CK_2}}">
+                </td>
+              </tr>
+              <tr>
+                <td class="td-label"><label for="visibility">Visibility:</label></td>
+                <td class="input">
+                  <label class="switch">
+                    <input type="checkbox" {{CKV_ITEM_VISIBILITY}} />
+                    <div class="slider"></div>
+                  </label>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="input" colspan="2">
+            <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+                <tr colspan='2'>
+                  <td class="td-label" style="width: calc(33.6% / 2)"><label for="description">Description:</label></td>
+                  <td class="input">
+                    <textarea
+                      type="text" 
+                      class="form-control"
+                      id="description" 
+                      name="description[]">{{CKV_ITEM_MESSAGE}}</textarea>
+                  </td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="input" colspan="2">
+            <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+              <tr style="vertical-align: top">
+                <td class="input" colspan="2">						
+                  <label class="file">
+                    Icon
+                    <input accept='images' type="file" class="form-control" name="photo[]" id="{{CKV_ITEM_ICON_ID}}" >
+                  </label>
+                  {{CKV_ITEM_ICON}}
+                </td>
+                <td class="input" colspan="2">						
+                  <label class="file">
+                    Background Image
+                    <input accept='images' type="file" class="form-control" name="photo[]" id="{{CKV_ITEM_BG_ID}}" >
+                  </label>
+                  {{CKV_ITEM_BG}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+  
+  </div>

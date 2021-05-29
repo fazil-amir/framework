@@ -1,0 +1,146 @@
+<div class='testimonial-item'>
+
+  <span class='icon delete' id="{{TESTIMONIAL_DELETE_ID}}"></span>
+  <span class='icon arrow-double' id='{{TESTIMONIAL_COLLAPSE_ID}}'></span>
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table" style="margin-bottom: -1px">
+    <tr>
+      <th colspan="2" class="custom-header item-counter">Testimonial #<span>{{TESTIMONIAL_COUNT}}</span></th>
+    </tr>
+  </table>
+  <span class="move-handle icon move"></span>
+  
+  <div class="widget-content-container" id='widget-content-container'>
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+      
+      <tr>
+        <td class="td-label"><label for="full_name">Full Name (With Title):</label></td>
+        <td class="input">
+          <input 
+            placeholder='Mr. John Doe'
+            type="text" 
+            class="form-control validate"
+            required="required" 
+            name="full_name[]" 
+            id="full_name" 
+            value="{{TESTIMONIAL_FULL_NAME}}">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="td-label"><label for="designation">Designation:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Soft Engg.'
+            type="text" 
+            class="form-control" 
+            id="designation" 
+            name="designation[]" 
+            value="{{TESTIMONIAL_DESIGNATION}}">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="td-label"><label for="company">Company:</label></td>
+        <td class="input">
+          <input 
+            placeholder='EX - Microsoft'
+            type="text" 
+            class="form-control" 
+            id="company" 
+            name="company[]" 
+            value="{{TESTIMONIAL_COMPANY}}">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="td-label"><label for="location">Location:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Lehigh Valley, PA'
+            type="text" 
+            class="form-control" 
+            id="location" 
+            name="location[]" 
+            value="{{TESTIMONIAL_LOCATION}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-label"><label for="facebook">Facebook:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Facebook page/profile URL'
+            type="text" 
+            class="form-control" 
+            id="facebook" 
+            name="facebook[]" 
+            value="{{TESTIMONIAL_FACEBOOK}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-label"><label for="linkedin">LinkedIn:</label></td>
+        <td class="input">
+          <input 
+            placeholder='LinkedIn page/profile URL'
+            type="text" 
+            class="form-control" 
+            id="linkedin" 
+            name="linkedin[]" 
+            value="{{TESTIMONIAL_LINKEDIN}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-label"><label for="Twitter">Twitter:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Twitter page/profile URL'
+            type="text" 
+            class="form-control" 
+            id="twitter" 
+            name="twitter[]" 
+            value="{{TESTIMONIAL_TWITTER}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-label"><label for="website">Website:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Complete Website URL'
+            type="text" 
+            class="form-control" 
+            id="website" 
+            name="website[]" 
+            value="{{TESTIMONIAL_WEBSITE}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-label"><label for="message">Message:</label></td>
+        <td class="input">
+          <textarea 
+            placeholder='The client message'
+            type="text" 
+            class="form-control validate"
+            required="required" 
+            id="message" 
+            name="company[]">{{TESTIMONIAL_MESSAGE}}</textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="input" colspan="2">						
+          <label class="file">
+            Profile Image
+            <input accept='images' type="file" required="required" class="validate form-control photo" name="photo[]" id="{{TESTIMONIAL_IMG_ID}}" >
+          </label>
+          {{TESTIMONIAL_IMAGE}}
+        </td>
+      </tr>
+      
+    </table>
+  </div>
+
+</div>

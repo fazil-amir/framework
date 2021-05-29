@@ -1,0 +1,87 @@
+<div class='slide'>
+  <span class='icon delete' id="{{SLIDE_DELETE_ID}}"></span>
+  <span class='icon arrow-double' id='{{SLIDE_COLLAPSE_ID}}'></span>
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table" style="margin-bottom: -1px">
+    <tr>
+      <th colspan="2" class="custom-header">Slide {{SLIDE_COUNT}}</th>
+    </tr>
+  </table>
+  <span class="move-handle icon move"></span>
+  
+  <div class="slide-data-table">
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" class="form-table">
+      <tr>
+        <td class="td-label"><label for="headline">Headline:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Headline'
+            type="text" 
+            class="form-control" 
+            name="headline[]" 
+            id="headline" 
+            value="{{SLIDER_HEADLINE}}">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="td-label"><label for="sub-caption">Caption:</label></td>
+        <td class="input">
+          <input 
+            placeholder='Sub Headline'
+            type="text" 
+            class="form-control" 
+            id="sub-caption" 
+            name="caption[]" 
+            value="{{SLIDER_CAPTION}}">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="td-label"><label for="btn-link">Button Link:</label></td>
+        <td class="input">
+          <input 
+            placeholder='https://google.com'
+            type="text"
+            class="form-control" 
+            id="btn-link" 
+            name="btn_link[]" 
+            value="{{SLIDER_BTN_LINK}}">
+        </td>
+      </tr>
+    
+      
+      <tr>
+        <td class="td-label"><label>Target</label></td>
+        <td class="input">
+          <input 
+            {{SLIDER_TARGET_NEW_PAGE}}
+            type="radio" 
+            id="{{NEW_PAGE_RADIO_ID}}"
+            name="{{TARGET_RADIO}}" 
+            value="new" /> 						
+          <label class="radio-btn" for="{{NEW_PAGE_RADIO_ID}}">New Page</label>
+  
+          <input 
+            {{SLIDER_TARGET_SAME_PAGE}}
+            type="radio" 
+            id="{{SAME_PAGE_RADIO_ID}}"
+            name="{{TARGET_RADIO}}" 
+            value="same" /> 						
+          <label class="radio-btn" for="{{SAME_PAGE_RADIO_ID}}">Same Page</label>
+        </td>
+      </tr>
+  
+      <tr>
+        <td class="input" colspan="2">						
+          <label class="file">
+            Slide Image
+            <input accept='images' type="file" required="required" class="validate form-control slide-image" name="slide_image[]" id="{{SLIDER_IMG_ID}}" >
+          </label>
+          {{SLIDER_IMAGE}}
+        </td>
+      </tr>
+    
+    </table>
+  </div>
+
+</div>

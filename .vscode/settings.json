@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "**/application/config": true,
+    "**/dashboard/config": true
+  }
+}

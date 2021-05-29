@@ -1,0 +1,1464 @@
+/* =====================================
+	MAIN	
+================================================================================================================ */
+main {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	font-size: 13px;
+	font-family: 'Open Sans', sans-serif;
+	color: $colorText !important;
+	background-color: $colorBackground;
+}
+
+.overlay {
+	background-image: url('../images/spinner.svg');
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	position: fixed;
+	background-color: rgba($colorText, 0.5);
+	z-index: 200;
+	display: none;
+
+	.show {
+		display: block;
+	}
+
+	&::after {
+		content: 'Please wait...';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+		height: 40px;
+		padding-top: 11px;
+		width: 100%;
+		margin: auto;
+		font-size: 14px;
+		text-transform: uppercase;
+		background: $colorText;
+		color: $colorWhite;
+	}
+}
+
+/* =====================================
+	HEADER	
+================================================================================================================ */
+header.header{
+	height: 60px;
+	position: relative;
+	background: $colorHeader;
+	border-bottom: 5px solid darken($colorHeader, 5%);
+	@include boxShadow();
+
+	.logo {
+		position: absolute;
+		width: 240px;
+		height: 60px;
+		left: 0;
+		top: 0;
+		background-color: darken($colorWhite, 3%);
+
+		img{
+			width: 220px;
+			height: auto;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	}
+
+	nav.header-nav{
+		float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+		height: 100%;
+		
+		ul{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			
+			li {
+				display: block;
+				float: left;
+				min-width: 80px;
+				margin-right: 5px;
+				padding-top: 3px;
+
+				&.divider {
+					min-width: 10px;
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						height: 25px;
+						width: .5px;
+						background: $colorBackground;
+						left: 5px;
+						top: 10px;
+					}
+				}
+			}
+
+			@include clear();
+		}
+	}
+}
+
+
+
+/* =====================================
+	
+	NAV	
+	
+================================================================================================================ */
+
+
+nav.nav{
+	width: 240px;
+	margin-top: 0px;
+	height: calc(100vh - 60px);
+	background-color: $colorHeader;
+	padding-top: 10px;
+	padding-bottom: 50px;
+	float: left;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar-track{
+		background-color: $colorHeader;
+	}
+
+	&::-webkit-scrollbar{
+		width: 5px;
+		background-color: $colorHeader;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $colorHeader;
+	}
+
+	ul {
+		margin:0;
+		padding:0;
+		width: 100%;
+		list-style-type: none;
+
+		li{
+			width: 100%;
+			display: block;
+			margin-bottom: 2px;
+			@include transition();
+
+			a{
+				@include transition();
+				padding-left: 15px;
+				width: 100%;
+				display: block;
+				height: 45px;
+				line-height: 45px;
+				background: $colorNav;				
+				color: $colorWhite;
+				border-left: 7px solid $colorNav;
+				text-decoration: none;				
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 11px;
+				font-weight: 600;
+
+				&.active {
+					border-left: 6px solid darken($colorNav, 10%);
+				}
+
+				&:hover {
+					padding-left: 18px;
+				}								
+			}
+
+			ul{
+				max-height: 0px;
+				overflow: hidden;
+				margin-top: 0px;
+				margin: 0;
+				padding: 0;
+				transition: max-height 0.2s ease-out;
+
+				&.active {
+					max-height: 500px;
+					margin-bottom: 1px;
+					margin: auto;
+					padding: 0;
+					transition: max-height 0.5s ease-in;
+				}
+
+				&.current {
+					max-height: 500px;
+					margin-bottom: 1px;
+					margin: auto;
+					padding: 0;
+					transition: max-height 0.5s ease-in;
+				}
+
+				li {
+					margin-bottom: 2px;
+
+					a{
+						padding-left: 30px;
+						background-color: lighten($colorHeader, 5%);
+						border-left: 5px solid darken($colorWhite, 5%);
+						height: 40px;
+						line-height: 40px;
+
+						&:hover {
+							padding-left: 35px;
+						}
+						
+					}
+
+					a[href*="DIVIDER-LINE"]{
+						font-size: 0%;
+						height: 2px;
+						background: darken($colorWhite, 3%);;
+						border-left: 5px solid darken($colorWhite, 3%);;
+						margin-bottom: -2px;
+						margin-top: -2px;
+						pointer-events:none;
+					}
+				}
+			}	
+		}
+	}
+}
+
+
+
+/* =====================================
+	SECTION	
+================================================================================================================ */
+section.section{
+	width: calc(100% - 240px);
+	float: right;
+	height: calc(100vh - 60px);
+	overflow: hidden;
+	overflow-y: auto;
+	background-color: $colorBackground;
+	padding: 0px 15px;
+	display: flex;
+	flex-direction: column;
+
+	.section-header{
+		background-color: darken($colorWhite, 3%);
+		padding: 20px;
+		margin: 0 -15px;
+		margin-bottom: 10px;
+
+		h1, h2, h3 {
+			font-size: 20px;
+			padding: 0;
+			margin: 0;
+			text-transform: capitalize;
+			font-weight: 400;
+		}
+	}
+
+	.intro-section {
+		min-height: 80px;
+		padding: 5px 0;
+
+		.header-wrapper {
+			width: 59%;
+		}
+
+		.button-wrapper {
+			width: 40%;
+			text-align: right;
+		}
+
+		.header-wrapper, .button-wrapper{
+			vertical-align: middle;
+			display: inline-block;
+		}
+	}
+
+	.call-to-action {
+		padding: 5px;
+    display: flex;
+		margin-top: -1px;
+    border: 1px solid $colorBorder;
+		
+		> * {
+			margin: 5px;
+		}
+	}
+
+  &::-webkit-scrollbar-track{
+		-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+		background-color: $colorWhite;
+	}
+
+	&::-webkit-scrollbar{
+		width: 6px;
+		background-color: $colorHeader;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $colorText;
+		//border: 2px solid $colorHeader;
+	}
+}
+
+
+
+/* =====================================
+	VIEW AREA	
+================================================================================================================ */
+.view-area{
+	position: relative;
+  flex: 1;
+}
+
+
+/* =====================================
+	TABULAR SECTION	
+================================================================================================================ */
+.tabular-section {
+	.nav-tabs{
+		padding-left: 5px;
+		border-bottom: 0;
+		margin-bottom: 0.5px;
+
+		.nav-item{
+			margin-right: 5px;
+
+			.nav-link{
+				border:none;
+				padding: 1.2em 2.7em;
+				background-color: $colorOff;
+				color: $colorWhite;
+				border-radius: 0;
+				border-radius: 4px 4px 0px 0px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-size: 11px;
+				font-weight: 600;
+
+				&.active {
+					background-color: $colorOn;
+				}
+			}
+		}
+	}
+
+	h4{
+		padding-bottom: 10px;
+		font-size: 1.5em;
+	}
+
+	.tab-content {
+		padding: 10px;
+		border: 1px solid $colorBorder;
+
+		.content-wrapper{
+			display: none;
+
+			&.active {
+				display: block;
+			}
+		}
+	}
+}
+
+
+
+
+/* =====================================
+	CONTENT	
+================================================================================================================ */
+.content {
+	padding: 10px 0;
+	margin-bottom: 20px;
+	position: relative;
+
+	h4{
+		padding: 5px 0;
+		font-size: 1.4em;
+	}
+
+	.overflow-table {
+		min-width: 100%;
+		overflow-y: auto;		
+
+		&::-webkit-scrollbar-track{
+			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+			background-color: $colorWhite;
+		}
+
+		&::-webkit-scrollbar{
+			height: 10px;
+			background-color: $colorHeader;
+			cursor: pointer;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $colorText;
+			//border: 2px solid $colorHeader;
+		}
+
+		.paging-nav {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+/* =====================================
+	ERRORS	
+================================================================================================================ */
+.error input, .error select, .error textarea{
+	@include boxShadow($shadow: inset 0px 0px 0.5px 0.5px #da7575);
+}
+.err-message {
+	z-index: 100;
+	display: block;
+	position: absolute;
+	right: 8px;
+	top: 12px;
+	background-color: $colorDanger;
+	padding: 5px 10px;
+	color: $colorWhite;
+	font-size: 9px;
+	text-transform: uppercase;
+	border-radius: 4px;
+	letter-spacing: 1px;
+}
+
+/* =====================================
+	FORM TABLE	
+================================================================================================================ */
+.form-table{
+	background-color: $colorBackground;
+	border: 1px solid $colorBorder;
+	border-collapse: collapse;
+
+	select {
+		background-color: transparent;
+	}
+
+	.semi-heading{
+		background-color: darken($colorWhite, .5%);
+		font-weight: bold;
+		height: 35px !important;
+		padding: 5px 15px !important;
+	}
+	.custom-header {
+		padding: 28px 15px 16px 15px !important;
+		vertical-align: middle;
+		background-color: darken($colorWhite, 3%);
+		color: $colorText;
+		text-align: left;
+		font-size: 10px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		position: relative;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			top: -3px;
+			left: -1px;
+			width: calc(100% + 2px);
+			height: 15px;
+			background: $colorBackground;
+			border-top: 1px solid $colorBorder;
+			border-bottom: 1px solid $colorBorder;
+		}
+	}
+
+	tbody > tr:first-child th.custom-header {
+		padding: 16px 15px !important;
+		&::after {
+			display: none;
+		}
+	}
+
+	// .custom-header:first-child  {
+	// 	display: none;
+	// }
+
+	.table-header{
+		height: 45px !important;
+		padding: 5px 12px !important;
+		background-color: transparent !important;
+		color: $colorText;
+		text-align: left !important;
+		font-weight: 800;
+		text-transform: uppercase;
+		border-top: 1px solid $colorBorder !important;
+
+		a {
+			position: absolute;
+			right: 24px;
+			top: 7px;
+			padding: 5px 20px;
+		}
+	}
+
+	&.form-records {
+		th{
+			height: 45px;
+			vertical-align: middle;
+			background-color: darken($colorWhite, 3%);
+			color: $colorText;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		td{
+			height: 45px;
+			vertical-align: middle;
+			padding: 0 15px;
+		}
+
+		img {
+			width: 30px;
+		}
+	}
+
+	.td-label {
+		width: 20%;
+		height: 46px;
+		padding-left: 10px;
+		vertical-align: top;
+    padding-top: 13px;
+
+		label {
+			margin-bottom: 0;
+			text-transform: capitalize;
+			font-size: 12px;
+			font-weight: 600;
+			cursor: pointer;
+			text-transform: uppercase;
+		}
+	}
+
+	td.input{
+		position: relative;
+		height: 45px;
+
+		> a {
+			display: block;
+			padding: 15px;
+		}
+
+		input, select, textarea{
+			border:none;
+
+			&:focus{
+				@include boxShadow($shadow: inset 0px 0px 0px 2px darken($colorWhite, 5%));
+			}			
+		}
+
+		textarea {
+			line-height: 18px;
+			height: 130px;
+			border: none;
+		}
+
+		select{
+			height: 45px !important;
+
+			&:focus{
+				outline: none;
+				height: 40px;
+			}
+		}
+
+		&.readable-only{
+			padding-left: 15px;
+			background-color: darken($colorWhite, 1.5%);
+			cursor: not-allowed;
+		}
+
+		.file {
+			cursor: pointer;
+			overflow: hidden;
+			padding: 15px;
+			margin: 8px;
+			display: block;
+			width: 250px;
+			background-color: $colorOn;
+			text-align: center;
+			color: $colorWhite;
+			font-size: 12px;
+			text-transform: uppercase;
+			@include transition();
+			z-index: -999;
+			border-radius: 4px;
+			&:hover {
+				background-color: darken($colorOn, 10%);
+			}
+
+			[type=file] {
+				border-radius: 4px;
+				font-size: 12px;
+				font-weight: 600;
+				letter-spacing: 2px;
+				cursor: inherit;
+				display: block;
+				font-size: 999px;
+				filter: alpha(opacity=0);
+				height: 45px;
+				width: 170px;
+				opacity: 0;
+				position: absolute;
+				right: 0;
+				text-align: right;
+				top: 0;
+				left: 0;
+				z-index: -999;
+			}
+		}
+
+		.preview-images {
+			width: 160px;
+			height: 160px;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			margin: 5px;
+
+			&.cover-image {
+				width: calc(100% - 16px);
+				height: 350px;
+			}
+
+			img {	
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				border: 0;
+				margin: auto;
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+
+			span.icon.delete {
+				display: block !important;
+				z-index: 11111;
+				position: absolute;
+				right: 4px;
+				top: 4px;
+
+				&.still {
+					pointer-events: none;
+				}
+			}
+		}
+
+		.card {
+			background: $colorPrimary;
+			padding: 10px;
+			display: inline-block;
+			margin: 10px 0 0 10px;
+			border: 1px solid darken($colorPrimary, 10%);
+			border-radius: 3px;
+			text-align: center;
+			position: relative;
+
+			.title {
+				padding-bottom: 10px;
+				font-size: 18px;
+				color: $colorWhite; 
+			}
+			.sm-input {
+			    margin: 3px 0;
+			    border-radius: 3px;
+			    padding: 3px 5px;
+			    outline: none;
+			    border: 0;
+			    display: block;
+			    font-size: 12px;
+			}
+
+			.delete {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				right: -8px;
+				opacity: 1;
+				text-shadow: none;
+				font-size: 13px;
+				font-family: monospace;
+				border: 1px solid $colorWhite;;
+				border-radius: 100%;
+				top: -8px;
+				line-height: 17px;
+				font-weight: bolder;
+				background-color: $colorHeader;
+				color: $colorWhite;
+				cursor: pointer;
+
+				&.still {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+
+	td.button{
+		width: 140px;
+		 .btn{
+			background-color: darken($colorWhite, 3%);
+			width: 100%;
+			height: 45px;
+			color: $colorText;
+
+			&:hover{
+				background-color: darken($colorWhite, 5%);
+			}
+		}
+	}
+
+	td.editable {
+		&.edit-now {
+			font-weight: 800;
+			outline: 1px dashed $colorPrimary;
+		}
+
+		&.error{
+			outline: 1px dashed lighten(red, 5%);
+		}
+		
+		.err-message {
+			position: relative;
+			display: inline-block;
+			top: 0%;
+			float: right;
+			right: -5px;
+			padding: 3px 7px;
+			font-size: 10px;
+			width: 45%;
+		}
+	}
+
+	
+
+}
+
+
+/* =====================================
+	BTN
+================================================================================================================ */
+.btn {
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 12px 25px;
+	outline: none !important;
+	box-shadow: none !important;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: 1px solid transparent;
+
+	&.still {
+		pointer-events: none;
+		cursor: none;
+	}
+
+	&.btn-sm {
+		padding: 5px 15px;
+		font-size: 12px;
+	}
+
+	&.btn-md {
+		font-size: 11px;
+		font-weight: 600;
+		padding: 12px;
+		letter-spacing: 1px;
+	}
+
+	&.btn-lg {
+		padding: 15px 25px;
+		min-width: 160px;
+	}
+
+	&.selected {
+		background-color: $colorPrimary !important;
+	}
+
+	&.dropdown-toggle.selectpicker.btn-default {
+		border: none;
+		background: none;
+		outline: none !important;
+		padding: 13px 14px;
+		text-transform: capitalize;
+	}
+
+	&.btn-primary {
+		background-color: $colorPrimary;
+		border: 1px solid darken($colorPrimary, 3%);
+
+		&:hover, &.active {
+			background-color: darken($colorPrimary, 5%);
+		}
+		&:focus{
+			color: #fff;
+		}
+	}
+
+	&.btn-info{
+		background-color: $colorInfo;
+		border: 1px solid darken($colorInfo, 3%);
+
+		&:hover &.active {
+			background-color: darken($colorInfo, 5%);
+		}
+		&:focus, &:focus:active {
+			background-color: darken($colorInfo, 5%);
+			color: #fff;
+		}
+	}
+
+	&.btn-success{
+		background-color: $colorSuccess;
+		border: 1px solid darken($colorSuccess, 3%);
+
+		&:hover &.active {
+			background-color: darken($colorSuccess, 3%) !important;
+		}
+		&:focus, &:focus:active {
+			background-color: darken($colorSuccess, 3%);
+			color: #fff;
+		}
+	}
+
+	&.btn-danger{
+		background-color: $colorDanger;
+		border: 1px solid darken($colorDanger, 5%);
+
+		&:hover &.active {
+			background-color: darken($colorDanger, 3%);
+		}
+		&:focus{
+			color: #fff;
+		}
+	}
+}
+
+/* =====================================
+	ACTION BUTTONS INSIDE LISTING PAGE
+================================================================================================================ */
+.btn-action, [class*="-trigger"] {
+	border-radius: 2px;
+	font-size: 10px;
+	font-weight: 600;
+	color: #fff !important;
+	outline: none !important;
+	box-shadow: none !important;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	letter-spacing: 2px;
+	background-color: $colorPrimary;
+	height: 20px;
+	display: inline-block;
+	line-height: 19px;
+	min-width: 60px;
+	margin: 2px;
+	text-align: center;
+	padding: 0 5px;
+	box-sizing: border-box;
+}
+
+.btn-action.delete, [class*="-delete-trigger"] {
+	background-color: $colorDanger;
+}
+
+.btn-action.more, [class*="-more-trigger"] {
+	background-color: $colorSuccess;
+}
+
+
+/* =====================================
+	
+	FORM CONTROL	
+	
+================================================================================================================ */
+
+.form-control {
+	border-radius: 0;
+	font-size: 13px;
+	height: 45px;
+	line-height: 45px;
+	position: relative;
+	box-shadow: none;
+	background-color: $colorBackground;
+}
+
+.form-control[disabled], .form-control[readonly]{
+	background-color: darken($colorWhite, 1.5%);
+	box-shadow: none;
+}
+
+/* =====================================
+	SWITCH		
+================================================================================================================ */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	min-height: 28px;
+	top: 2.5px;
+	left: -4px;
+	margin: 0;
+	border-radius: 4px;
+	transform: scale(0.7);
+
+	input {
+		display:none;
+
+		&:checked + .slider {
+			background-color: $colorOn;
+			border-radius: 4px;
+		}
+
+		&:focus + .slider {
+			box-shadow: 0 0 1px #2196F3;
+			border-radius: 4px;
+		}
+
+		&:checked + .slider:before {
+			-webkit-transform: translateX(61px);
+			-ms-transform: translateX(61px);
+			transform: translateX(61px);
+			border-radius: 4px;
+		}
+	}
+
+	.inner-label{
+		display: block;
+		margin-top: -20px;
+		height: 66px;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $colorOff;
+		-webkit-transition: .4s;
+		transition: .4s;
+		border-radius: 4px;
+		height: 28px;
+
+		&::before {
+			position: absolute;
+			content: "";
+			height: 20px;
+			width: 30px;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+			border-radius: 4px;
+		}
+	}
+}
+
+
+
+/* =====================================
+	RADIO BUTTON	
+================================================================================================================ */
+input[type="radio"]{
+	opacity: 0
+}
+input[type="radio"]:checked + .radio-btn{
+	background-image: url(../images/form_icons/checked.png);
+}
+.radio-btn {
+	width: auto;
+	margin-bottom: 0;
+	background-image: url(../images/form_icons/unchecked.png);
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	padding-left: 25px;
+	position: relative;
+	cursor: pointer;
+	margin-right: 20px;
+	background-position: 4px 2px;
+	margin-left: -6px;
+}
+
+/* =====================================
+	ALERTS	
+================================================================================================================ */
+.alert {
+	border: none;
+	border-radius: 0;
+	min-height: 50px;
+	line-height: 30px;
+
+	&.alert-danger {
+		background-color: $colorDanger;
+		color: $colorWhite;
+	}
+	&.alert-success {
+		background-color: $colorPrimary;
+		color: $colorWhite;
+	}
+	.close{
+		top: -6px !important;
+	}
+}
+
+/* =====================================
+	PAGINATION		
+================================================================================================================ */
+.paging-nav {
+	position: relative;
+
+	a {
+		margin: 0 2px;
+		display: inline-block;
+		padding: 8px 0;
+		color: $colorText;
+		background-color: darken($colorWhite, 5%);
+		text-decoration: none;
+		width: 35px;
+		text-align: center;
+		font-size: 12px;
+		border-radius: 4px;
+	
+		&.selected-page {	
+			color: $colorWhite;
+			background-color: $colorPrimary;
+		}
+	}
+}
+
+/* =====================================
+	LISTING COUNT		
+================================================================================================================ */
+.listing-count {
+	letter-spacing: 1px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 35px;
+	right: 12px;
+}
+
+
+/* =====================================
+	
+	FOOTER	
+	
+================================================================================================================ */
+
+footer.footer {
+	background-color: transparent;
+	padding: 20px 15px;
+	font-size: 12px;
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 35px;
+	border-top: 5px solid darken($colorWhite, 5%);
+
+	p:first-child{
+		margin: 0;
+		float: left;
+	}
+	p:last-child{
+		margin: 0;
+		float: right;
+	}
+
+	@include clear();
+}
+
+
+
+/* =====================================
+	
+		
+	
+================================================================================================================ */
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    text-align: left;
+    list-style: none;
+    background-color: #fafafa;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #e0e0e0;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.bs-actionsbox, .bs-donebutton, .bs-searchbox {
+    padding: 4px;
+}
+
+.bootstrap-select.btn-group .no-results {
+    padding: 0px 14px;
+    background: #f5f5f5;
+    margin: 0px 5px 10px 6px;
+    white-space: nowrap;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 10px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #8bc34a;
+    outline: 0;
+}
+
+.bootstrap-select.btn-group .dropdown-menu.inner {
+	max-height: 200px !important;
+	overflow: auto !important;
+	border: 1px solid $colorBorder !important;
+	top: calc(100% + 3px) !important;
+
+	&::-webkit-scrollbar-track{
+		background-color: $colorHeader;
+	}
+
+	&::-webkit-scrollbar{
+		width: 5px;
+		background-color: $colorHeader;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $colorPrimary;
+	}
+	li {
+		border-bottom: 1px solid $colorBorder;
+	}
+	li:last-child {
+		border: none;
+	}
+	.glyphicon.glyphicon-ok.check-mark {
+		margin-top: 9px;
+	}
+}
+
+/* =====================================
+	RICH TEXT EDITOR	
+================================================================================================================ */
+.redactor-styles {
+	font-family: 'Open Sans', sans-serif!important;
+    font-size: 14px!important;
+    line-height: 24px;
+    color: $colorText !important;
+    padding: 8px !important;
+    min-height: 270px !important;
+}
+.redactor-styles *{
+	font-family: 'Open Sans', sans-serif!important;
+}
+
+/* =====================================
+	ALERT		
+================================================================================================================ */
+.notifyjs-bootstrap-base {
+    font-weight: 800 !important;
+    letter-spacing: 1.5px;
+    text-shadow: none !important;
+    background-color: $colorInfo !important;
+    border: none !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    padding: 15px 20px !important;
+    min-width: 300px !important;
+    text-align: center !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    background-image: none !important; 
+}
+
+.notifyjs-bootstrap-error {
+	background-color: $colorDanger !important;
+}
+
+.notifyjs-bootstrap-alert {
+	background-color: $colorInfo !important;
+}
+
+/* =====================================
+	FLOATING BTN WRAPPER		
+================================================================================================================ */
+.absolute-header-btn-wrapper {
+	position: absolute;
+	top: -65px;
+	right: 0;
+}
+
+/* =====================================
+	ICONS		
+================================================================================================================ */
+.icon {
+	position: relative;
+	z-index: 5;
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: 1px solid $colorBorder;
+	opacity: 0.9;
+	@include borderRadius();
+	@include transitionAll();
+
+	&.move {
+		cursor: move;
+		background-image: url(../images/arrows/005-move.svg);
+    background-color: $colorBackground;
+	}
+
+	&.arrow-double {
+		background-image: url(../images/arrows/002-arrow-double.svg);
+    background-color: $colorBackground;
+	}
+
+	&.delete {
+		background-image: url(../images/arrows/delete.svg);
+		background-color: $colorDanger;
+		border: 1px solid darken($colorDanger, 2%);
+	}
+
+	&:hover {
+		@include transitionAll();
+		opacity: 1;
+	}
+}
+
+/* =====================================
+	
+	CARDS	
+	
+================================================================================================================ */
+
+.card{
+	border: 1px solid $colorBorder;
+	position: relative;
+	cursor: pointer;
+	margin: 10px 0;
+
+	header {
+		background: lighten($colorBorder, 5%);
+		padding: 5px 10px;
+		border-bottom: 1px solid $colorBorder;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.text, .icon {
+		float: left;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.icon {
+		width: 40%;
+		background-color: lighten($colorBorder, 5%);
+		border-right: 1px solid $colorBorder;
+		padding: 15px; 
+
+		img {
+			display: block;
+			    max-height: 40px;
+			margin: auto;
+		}
+	}
+
+	.text {
+		float: left;
+		font-size: 34px;
+		width: 60%;
+		position: relative;
+		padding-left: 20px;
+		padding-top: 16px;
+		font-family: fantasy;
+		letter-spacing: 4px;
+		box-sizing: border-box;
+		color: $colorText;
+
+		span {
+			font-size: 12px;
+			letter-spacing: 0;
+			position: absolute;
+			top: 9px;
+			left: 20px;
+			height: 20px;
+			line-height: normal;
+			font-weight: 900;
+			font-family: arial;
+			color: $colorText;
+		}
+	}
+}
+
+
+.badge {
+	&.badge-primary{
+		background-color: $colorPrimary;
+	}
+
+	&.badge-info{
+		background-color: $colorInfo;
+	}
+
+	&.badge-success{
+		background-color: $colorSuccess;
+	}
+
+	&.badge-danger{
+		background-color: $colorDanger;
+	}
+}
+
+.enquiry-container{
+	table.enquiry-left{
+		border-collapse:separate; 
+  		border-spacing: 0 5px;
+		margin: -5px 0 30px 0;
+		padding: 0;
+		width: 100%;
+		
+		tr td {
+			border-left: 5px solid darken($colorWhite, 15%);
+			padding: 10px 0;
+			background-color: darken($colorWhite, 2%);
+			cursor: pointer;
+			-webkit-transition: .4s;
+			transition: .4s;
+			margin-bottom: 4px;
+			border-radius: 2px;
+
+			&.active {
+				border-left-color: $colorPrimary;
+			}
+
+			&:hover {
+				background-color: darken($colorWhite, 3%);
+			}
+
+			.flag-wrapper, .image, .user{
+				display: inline-block;
+				vertical-align: middle;
+				min-width: 40px;
+				text-align: center;
+			}
+
+			.user {
+				text-align: left;
+				padding-left: 10px;
+
+				.username {
+					font-size: 16px;
+					color: #8bc34a;
+					text-transform: capitalize;;
+				}
+
+				.email {
+					font-size: 12px;
+
+					.badge{
+						font-size: 10px;
+						text-transform: capitalize;
+					}
+				}
+			}
+
+			.flag {
+				width: 20px;
+				height: 20px;
+				border-radius: 4px;
+				display: inline-block;
+				border: 2px solid $colorSuccess;
+				position: relative;
+
+				&.checked{
+					&::after {
+						width: 10px;
+						height: 20px;
+						position: absolute;
+						content: '';
+						left: 7px;
+						top: -7px;
+						border-bottom: 3px solid $colorSuccess;
+						border-right: 3px solid $colorSuccess;
+						border-radius: 0 0 4px 0px;
+						transform: rotate(45deg);
+					}
+				}
+			}
+
+			.image {
+
+			}
+
+			.short-message{
+				padding: 5px 10px;
+				margin-top: 5px;
+				margin-bottom: -5px;
+				border-top: 1px solid darken($colorWhite, 12%)
+			}
+
+			img {
+				width: 40px;
+			}
+		}
+		
+	}
+	
+	.enquiry-right{
+		min-height: 500px;
+		background-color: darken($colorWhite, 1.5%);
+		margin: 0 -15px;
+	}
+}

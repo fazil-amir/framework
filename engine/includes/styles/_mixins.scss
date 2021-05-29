@@ -1,0 +1,65 @@
+/* Border Radius */
+@mixin borderRadius($radius : 2px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+/* Drop shadows */
+@mixin boxShadow($shadow:  0px 0px 5px #909090) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+/* A perfect square */
+@mixin sizeSquare($width: '', $paddingTop: 100%){
+	width:  $width;
+	&::before{
+		content: '';
+		display: block;
+		padding-top: $paddingTop;    
+	}
+}
+
+/* Sizing shortcuts */
+@mixin sizeAny($height : 'auto', $width: '') {
+	width: $width;
+	height: $height;
+}
+
+/* Center-align a block level element */
+@mixin centerBlock() {
+	display: block;  
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Opacity */
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+	filter: "alpha(opacity=${opacity})";
+}
+
+
+/* Transition */
+@mixin transition ($prop: all, $time: 0.1s, $ease: linear, $delay: 0.1s) {
+	-webkit-transition: $prop $time $ease $delay;
+	-moz-transition: $prop $time $ease $delay;
+	-o-transition: $prop $time $ease $delay;
+	-ms-transition: $prop $time $ease $delay;
+	transition: $prop $time $ease $delay;
+}
+
+@mixin transitionAll(){
+	transition: all 0.3s;
+}
+
+
+@mixin clear(){
+	&::after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+}

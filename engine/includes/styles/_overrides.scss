@@ -1,0 +1,122 @@
+ul li, a, button{
+	outline: none !important;
+}
+
+.form-group{
+	margin: 0;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #fff; // Choose your own color here
+ }
+
+ .table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: $colorStripedTable;
+ }
+
+ .popup_modals {
+  overflow: hidden;
+  @include boxShadow($shadow: 0px 0px 4px #777777);
+  @include borderRadius($radius: 4px);
+  min-width: 500px;
+  z-index: 999999 !important;
+  
+  .modal_content {
+    color: $colorBackground;
+    background-color: $colorHeader;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .modal_buttons {
+    .btn { 
+      text-align: center;
+      min-width: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 12px;
+      letter-spacing: 1px;
+
+      &.btn_sdry {
+        background-color: $colorDanger;
+        border: 1px solid darken($colorDanger, 5%);
+    
+        &:hover {
+          background-color: darken($colorDanger, 3%);
+        }
+        &:focus{
+          color: #fff;
+        }
+      }
+
+      &.btn_pmry {
+        background-color: $colorPrimary;
+        border: 1px solid darken($colorPrimary, 3%);
+
+        &:hover {
+          background-color: darken($colorPrimary, 5%);
+        }
+        &:focus{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+ }
+
+ .modal_backdrop {
+   z-index: 99999;
+ }
+
+
+ .modal {
+  
+  .modal-dialog {
+    display: flex;
+    height: 100vh;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    border: none;
+    @include boxShadow();
+    @include borderRadius(4px);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    border-bottom: none;
+    @include borderRadius(4px);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 100%;
+    background-color: $colorHeader;
+    padding: 25px 15px;
+
+    h4, h2, h3 {
+      color: $colorWhite;
+    }
+  }
+
+  .modal-footer {
+    width: 100%;
+    padding: 5px 15px;
+  }
+  
+  .modal-body {
+    overflow-y: auto;
+    height: 500px;
+    max-height: 75vh;
+    width: 30vw;
+    padding: 15px;
+  }
+ }
