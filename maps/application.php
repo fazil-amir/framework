@@ -6,15 +6,15 @@ $application['INFO'] 	= [
 		'adminEmail'			=> 'admin@fazilamir.me',
 	],
 	'language'			=> [
-		'ENGLISH'
+		'ENGLISH', 'ARABIC'
 	],
 	'disabledApp'				=> FALSE
 ];
 
 /* Dev Settings*/
 $application['DEV'] 	= [
-	'appDir'			=> '/code-framework/',
-	'rootDir'			=> $_SERVER['DOCUMENT_ROOT']  . '/code-framework/',
+	'appDir'			=> '/framework/',
+	'rootDir'			=> $_SERVER['DOCUMENT_ROOT']  . '/framework/',
 	'database'			=> [
 		'host'				=> 'localhost',
 		'database'		=> 'fazil4rz_cody_framework',
