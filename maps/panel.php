@@ -21,24 +21,24 @@ $panel['load'] = [
 		]
 	],
 
-// 	'WIDGETS' => [
-// 		'IMAGE_SLIDER' => [
-// 			'accessorName' => [
-// 				'home page slider'
-// 			]
-// 		],
-// 		'TESTIMONIAL' => [
-// 			'accessorName' => [
-// 				'common testimonial'
-// 			]
-// 		],
-// 		'COMMON_UI' => [
-// 			'accessorName' => [ 
-// 				'Clientele',
-// 				'Skill Meter'
-// 			]
-// 		]
-// 	],
+	'WIDGETS' => [
+		'IMAGE_SLIDER' => [
+			'accessorName' => [
+				'home page slider'
+			]
+		],
+		'TESTIMONIAL' => [
+			'accessorName' => [
+				'common testimonial'
+			]
+		],
+		'COMMON_UI' => [
+			'accessorName' => [ 
+				'Clientele',
+				'Skill Meter'
+			]
+		]
+	],
 
 	'FORM_SUBMISSIONS'	=> [
 		[

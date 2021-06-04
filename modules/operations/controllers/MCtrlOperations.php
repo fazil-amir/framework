@@ -71,7 +71,7 @@ class MCtrlOperations extends CI_Controller {
 	================================================================================================================ */
 	public function uploadImage() {
 		$this -> load -> helper('file');
-		$dir = $this -> input -> post('directory') ? $this -> input -> post('directory') : 'includes/uploads/';
+		$dir = $this -> input -> post('directory') ? $this -> input -> post('directory') : 'uploads/';
 		createDirectory($dir);
 		$image = uploadFile('image', $dir);
 		if($image['success'] === true) {

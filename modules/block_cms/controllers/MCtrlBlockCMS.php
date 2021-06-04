@@ -116,7 +116,7 @@ class MCtrlBlockCMS extends CI_Controller {
 			die();
 		}
 
-		$dir 			= 'includes/uploads/block_cms/posts/' . URLTitle($postID) . '/'; 
+		$dir 			= 'uploads/block_cms/posts/' . URLTitle($postID) . '/'; 
 		$richTextJSON = 'rich_data.json';
 		$imageGalleryDir = $dir . 'gallery';
 		createDirectory($dir);
@@ -311,7 +311,7 @@ class MCtrlBlockCMS extends CI_Controller {
 		$tableName = 'm_block_cms_categories';
 
 
-		$dir = 'includes/uploads/block_cms/categories/' . URLTitle($catID); 
+		$dir = 'uploads/block_cms/categories/' . URLTitle($catID); 
 		createDirectory($dir);
 		$bannerImage = json_decode($this -> input -> post('banner-image'), true)[0][0];
 		$fileName = explode('/', $bannerImage);

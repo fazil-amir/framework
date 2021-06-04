@@ -315,7 +315,7 @@ var ModernFileInput = (function(){
 			else if (input.files && input.files[i]) {
 				var fd = new FormData();
 				fd.append("image", input.files[i]);
-				fd.append('directory', 'includes/uploads/temp');
+				fd.append('directory', 'uploads/temp');
 				$.ajax({
 					data: fd,
 					type: "POST",

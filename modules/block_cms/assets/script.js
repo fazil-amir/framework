@@ -415,7 +415,7 @@ var BlockCMS = (function () {
 						var fd = new FormData();
 						var postID = $('#' + ID).parents('form').attr('action').split("/").pop().toLowerCase().replace(' ', '')
 						fd.append("image", image[0]);
-						fd.append('directory', 'includes/uploads/cms/posts/' + postID + '/images');
+						fd.append('directory', 'uploads/cms/posts/' + postID + '/images');
 						$.ajax({
 							data: fd,
 							type: "POST",

@@ -64,7 +64,7 @@ class MCtrlWidget extends CI_Controller {
   public function saveWidget($widgetType, $widgetID, $common, $specific, $assets = []) {
     $old = $this -> getWidgetData($widgetID, $widgetType);
     
-    $dir = 'includes/uploads/widgets/' . URLTitle(strtolower($widgetType)) . '/' . URLTitle($widgetID) . '/'; 
+    $dir = 'uploads/widgets/' . URLTitle(strtolower($widgetType)) . '/' . URLTitle($widgetID) . '/'; 
     createDirectory($dir);
     $richDataFile = 'rich_data.json';
     $specific = $this -> moveAssetsFromTemp($dir, $specific, $assets);
