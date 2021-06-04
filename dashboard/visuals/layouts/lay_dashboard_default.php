@@ -53,7 +53,7 @@
 <script type="text/javascript" src="<?php echo baseURL('engine/includes/popupmodal/popupmodal-min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo baseURL('engine/includes/scripts/modules.js'); ?>"></script>	
 <script type="text/javascript" src="<?php echo baseURL('engine/includes/scripts/process-form.js'); ?>"></script>	
-<script type="text/javascript" src="<?php echo baseURL('dashboard_assets/scripts/dashboard-interface.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo baseURL('dashboard-assets/scripts/dashboard-interface.min.js'); ?>"></script>
 
 <style>
     .overlay.show {  display: none!important; }

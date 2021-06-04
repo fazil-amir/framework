@@ -3,7 +3,7 @@
 <header class="header">
   <div class="logo">
     <a href="<?php echo baseURL('panel/'); ?>">
-      <img height="50" src="<?php echo baseURL('dashboard_assets/images/default_logo.png'); ?>">
+      <img height="50" src="<?php echo baseURL('dashboard-assets/images/default_logo.png'); ?>">
     </a>
   </div>
   <nav class="header-nav">
